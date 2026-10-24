@@ -1,4 +1,14 @@
 
+#
+What is Consul?
+Consul is a service networking tool that supports service registration, discovery, and health checking.
+
+It provides an HTTP API and DNS interface that applications can use to discover services.
+
+For this tutorial, we'll use:
+- Consul as our service registry.
+- Node.js as our application runtime.
+- Express as our web framework.
 
 
 docker run -d \
