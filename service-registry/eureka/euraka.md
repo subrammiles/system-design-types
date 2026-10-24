@@ -42,6 +42,23 @@ user servcie
 
 
 # Step 4
+
+Start Eureka
+On Linux or macOS:
+./mvnw spring-boot:run
+
+On Windows:
+mvnw.cmd spring-boot:run
+
+Open:
+
+http://localhost:8761
+
+You should see the Eureka dashboard.
+
+At this stage, the registry is running, but no application services have registered.
+
+
 Start the Payment Service.
 ./mvnw spring-boot:run
 
@@ -50,3 +67,21 @@ Now open the Eureka dashboard:
 http://localhost:8761
 
 After registration completes, you should see an application entry similar to:
+
+Test the application
+Run:
+curl http://localhost:8081/users/payment
+
+Expected response:
+{
+  "service": "Payment Service",
+  "message": "Payment processed successfully"
+}
+
+What happened?
+1. User Service started on port 8081.
+2. Payment Service started on port 8082.
+3. Both services registered with Eureka.
+4. The User Service requested the instances registered under payment-service.
+5. Eureka returned the available instance information.
+6. The User Service called the discovered Payment Service.
