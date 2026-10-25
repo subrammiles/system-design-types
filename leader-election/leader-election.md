@@ -55,4 +55,4 @@ Terminal 3:
 Instance server-C started.
 server-C is a follower.
 
-
+Run the three commands again. Followers will keep retrying. If the leader process exits, Redis will eventually expire its lease, allowing another instance to acquire leadership.
